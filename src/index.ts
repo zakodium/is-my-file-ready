@@ -17,3 +17,4 @@ export default async function isMyFileReady(
 }
 
 export * from './types';
+export * from './checks';
