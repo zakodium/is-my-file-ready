@@ -39,7 +39,7 @@ test('returns the expected result if file does end with the expected string', as
   });
 });
 
-test('throws error if input is not an array of byte', async () => {
+test('throws error if input is not an array of bytes', async () => {
   const t = async () => {
     await endsWithBytes((invalidEnd as unknown) as ArrayLike<number>)(file);
   };
