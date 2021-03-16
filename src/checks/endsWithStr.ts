@@ -1,14 +1,10 @@
 import { open, stat } from 'fs/promises';
 
-import { CheckFunction, CheckResult } from '../interfaces';
+import { CheckFunction } from '../types';
 
-interface EndWithStrResult extends CheckResult {
-  endsWith: string;
-}
-
-export function endsWithStr(endsStr: string): CheckFunction<EndWithStrResult> {
-  if (typeof endsStr !== 'string') {
-    throw new TypeError('endStr should be a string');
+export function endsWithStr(endsStr: string): CheckFunction {
+  if (typeof endsStr !== 'string' || endsStr.length === 0) {
+    throw new TypeError('endStr should be a non-empty string');
   }
   return async (path: string) => {
     const { size } = await stat(path);
@@ -27,10 +23,9 @@ export function endsWithStr(endsStr: string): CheckFunction<EndWithStrResult> {
     const endsWith = buffer.toString('utf-8');
 
     return {
-      endsWithStr: {
-        isReady: endsWith === endsStr,
-        endsWith,
-      },
+      name: 'endsWithStr',
+      isReady: endsWith === endsStr,
+      endsWith,
     };
   };
 }

@@ -14,19 +14,17 @@ beforeAll(async () => {
 
 test('returns the expected result if file has not the expected size', async () => {
   expect(await sameSize(notOkSize)(file)).toStrictEqual({
-    sameSize: {
-      isReady: false,
-      size: okSize,
-    },
+    name: 'sameSize',
+    isReady: false,
+    size: okSize,
   });
 });
 
 test('returns the expected result if file has the expected size', async () => {
   expect(await sameSize(okSize)(file)).toStrictEqual({
-    sameSize: {
-      isReady: true,
-      size: okSize,
-    },
+    name: 'sameSize',
+    isReady: true,
+    size: okSize,
   });
 });
 

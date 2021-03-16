@@ -17,12 +17,13 @@ test('can pass one check', async () => {
   const result = await isMyFileReady(file, endsWithStr(end));
   expect(result).toStrictEqual({
     isReady: true,
-    checks: {
-      endsWithStr: {
+    checks: [
+      {
+        name: 'endsWithStr',
         isReady: true,
         endsWith: end,
       },
-    },
+    ],
   });
 });
 
@@ -30,15 +31,26 @@ test('can pass multiple checks', async () => {
   const result = await isMyFileReady(file, [endsWithStr(end), sameSize(size)]);
   expect(result).toStrictEqual({
     isReady: true,
-    checks: {
-      endsWithStr: {
+    checks: [
+      {
+        name: 'endsWithStr',
         isReady: true,
         endsWith: end,
       },
-      sameSize: {
+      {
+        name: 'sameSize',
         isReady: true,
         size: size,
       },
-    },
+    ],
   });
+});
+
+test('typescript autocomplete correctly', async () => {
+  expect.assertions(1);
+  const result = await isMyFileReady(file, [endsWithStr(end), sameSize(size)]);
+  const check = result.checks[0];
+  if (check.name === 'endsWithStr') {
+    expect(check.endsWith).toBe(end);
+  }
 });
