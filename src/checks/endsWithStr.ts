@@ -2,11 +2,11 @@ import { open, stat } from 'fs/promises';
 
 import { CheckFunction, CheckResult } from '../interfaces';
 
-interface EndWithStrResult extends CheckResult {
+interface EndsWithStrResult extends CheckResult {
   endsWith: string;
 }
 
-export function endsWithStr(endsStr: string): CheckFunction<EndWithStrResult> {
+export function endsWithStr(endsStr: string): CheckFunction<EndsWithStrResult> {
   if (typeof endsStr !== 'string') {
     throw new TypeError('endStr should be a string');
   }
@@ -27,10 +27,9 @@ export function endsWithStr(endsStr: string): CheckFunction<EndWithStrResult> {
     const endsWith = buffer.toString('utf-8');
 
     return {
-      endsWithStr: {
-        isReady: endsWith === endsStr,
-        endsWith,
-      },
+      checkName: 'endsWithStr',
+      isReady: endsWith === endsStr,
+      endsWith,
     };
   };
 }

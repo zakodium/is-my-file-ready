@@ -13,37 +13,34 @@ beforeAll(async () => {
 
 test('returns the expected result if the last modification is different than the specified time (date)', async () => {
   expect(await editTime(notOkTime)(file)).toStrictEqual({
-    editTime: {
-      isReady: false,
-      lastEdit: okTime,
-    },
+    checkName: 'editTime',
+    isReady: false,
+    lastEdit: okTime,
   });
 });
 
 test('returns the expected result if the last modification is different than the specified time (ms)', async () => {
   expect(await editTime(notOkTime.getTime())(file)).toStrictEqual({
-    editTime: {
-      isReady: false,
-      lastEdit: okTime,
-    },
+    checkName: 'editTime',
+
+    isReady: false,
+    lastEdit: okTime,
   });
 });
 
 test('returns the expected result if the last modification is the same as the specified one (date)', async () => {
   expect(await editTime(okTime)(file)).toStrictEqual({
-    editTime: {
-      isReady: true,
-      lastEdit: okTime,
-    },
+    checkName: 'editTime',
+    isReady: true,
+    lastEdit: okTime,
   });
 });
 
 test('returns the expected result if the last modification is the same as the specified one (ms)', async () => {
   expect(await editTime(okTime.getTime())(file)).toStrictEqual({
-    editTime: {
-      isReady: true,
-      lastEdit: okTime,
-    },
+    checkName: 'editTime',
+    isReady: true,
+    lastEdit: okTime,
   });
 });
 

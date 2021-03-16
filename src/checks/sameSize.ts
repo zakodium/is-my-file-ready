@@ -17,10 +17,9 @@ export function sameSize(expectedSize: number): CheckFunction<SameSizeResult> {
   return async (path: string) => {
     const { size } = await stat(path);
     return {
-      sameSize: {
-        isReady: expectedSize === size,
-        size,
-      },
+      checkName: 'sameSize',
+      isReady: expectedSize === size,
+      size,
     };
   };
 }

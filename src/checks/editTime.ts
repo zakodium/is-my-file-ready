@@ -15,10 +15,9 @@ export function editTime(
   return async (path: string) => {
     const { mtime } = await stat(path);
     return {
-      editTime: {
-        isReady: sameDate(mtime, referenceTime),
-        lastEdit: mtime,
-      },
+      checkName: 'editTime',
+      isReady: sameDate(mtime, referenceTime),
+      lastEdit: mtime,
     };
   };
 }

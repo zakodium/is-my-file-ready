@@ -2,13 +2,13 @@ import { open, stat } from 'fs/promises';
 
 import { CheckFunction, CheckResult } from '../interfaces';
 
-interface EndWithByteArrayResult extends CheckResult {
+interface EndsWithByteArrayResult extends CheckResult {
   endsWith: ArrayLike<number>;
 }
 
 export function endsWithByteArray(
   endByteArray: ArrayLike<number>,
-): CheckFunction<EndWithByteArrayResult> {
+): CheckFunction<EndsWithByteArrayResult> {
   if (!Array.isArray(endByteArray)) {
     throw new TypeError('endByteArray should be an array');
   }
@@ -35,10 +35,9 @@ export function endsWithByteArray(
     }
 
     return {
-      endsWithByteArray: {
-        isReady: areEquals,
-        endsWith: [...buffer.values()],
-      },
+      checkName: 'endsWithByteArray',
+      isReady: areEquals,
+      endsWith: [...buffer.values()],
     };
   };
 }
