@@ -5,7 +5,6 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
 
-# Description
 Small utility to check if a file is ready to be worked with.
 
 ## Installation
