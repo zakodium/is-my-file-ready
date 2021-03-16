@@ -47,8 +47,9 @@ test('can pass multiple checks', async () => {
 });
 
 test('typescript autocomplete correctly', async () => {
+  expect.assertions(1);
   const result = await isMyFileReady(file, [endsWithStr(end), sameSize(size)]);
-  const check = result.checks[1];
+  const check = result.checks[0];
   if (check.name === 'endsWithStr') {
     expect(check.endsWith).toBe(end);
   }
