@@ -1,5 +1,4 @@
 import { stat } from 'fs/promises';
-import { inspect } from 'util';
 
 import { editTime } from '../editTime';
 
