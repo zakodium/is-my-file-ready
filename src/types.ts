@@ -1,6 +1,6 @@
 export type CheckName =
   | 'editTime'
-  | 'endsWithByteArray'
+  | 'endsWithBytes'
   | 'endsWithStr'
   | 'sameSize';
 
@@ -9,8 +9,8 @@ interface EditTimeResult {
   lastEdit: Date;
 }
 
-interface EndsWithByteArrayResult {
-  name: 'endsWithByteArray';
+interface EndsWithBytesResult {
+  name: 'endsWithBytes';
   endsWith: ArrayLike<number>;
 }
 
@@ -26,7 +26,7 @@ interface SameSizeResult {
 
 export type CheckResult = { isReady: boolean } & (
   | EditTimeResult
-  | EndsWithByteArrayResult
+  | EndsWithBytesResult
   | EndsWithStrResult
   | SameSizeResult
 );
