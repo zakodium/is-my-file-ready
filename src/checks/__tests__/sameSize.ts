@@ -1,9 +1,16 @@
+import { stat } from 'fs/promises';
+
 import { sameSize } from '../sameSize';
 
 const file = 'test-utils/lorem-ipsum.txt';
-const okSize = 2742;
-const notOkSize = 42;
+let okSize: number;
+let notOkSize: number;
 const invalidSizes = [42.2, '42'];
+
+beforeAll(async () => {
+  okSize = (await stat(file)).size;
+  notOkSize = okSize - 1;
+});
 
 test('returns the expected result if file has not the expected size', async () => {
   expect(await sameSize(notOkSize)(file)).toStrictEqual({
