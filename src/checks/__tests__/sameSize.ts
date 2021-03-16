@@ -22,10 +22,10 @@ test('returns the expected result if file has not the expected size', async () =
 });
 
 test('returns the expected result if file has the expected size', async () => {
-  expect(await sameSize(2742)(file)).toStrictEqual({
+  expect(await sameSize(okSize)(file)).toStrictEqual({
     sameSize: {
       isReady: true,
-      size: 2742,
+      size: okSize,
     },
   });
 });
