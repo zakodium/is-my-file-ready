@@ -3,8 +3,8 @@ import { open, stat } from 'fs/promises';
 import { CheckFunction } from '../types';
 
 export function endsWithStr(endsStr: string): CheckFunction {
-  if (typeof endsStr !== 'string') {
-    throw new TypeError('endStr should be a string');
+  if (typeof endsStr !== 'string' || endsStr.length === 0) {
+    throw new TypeError('endStr should be a non-empty string');
   }
   return async (path: string) => {
     const { size } = await stat(path);

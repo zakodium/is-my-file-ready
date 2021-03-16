@@ -3,8 +3,8 @@ import { open, stat } from 'fs/promises';
 import { CheckFunction } from '../types';
 
 export function endsWithBytes(endBytes: ArrayLike<number>): CheckFunction {
-  if (!Array.isArray(endBytes)) {
-    throw new TypeError('endBytes should be an array');
+  if (endBytes.length === undefined || endBytes.length === 0) {
+    throw new TypeError('endBytes should be a non-empty array');
   }
   return async (path: string) => {
     const { size } = await stat(path);
