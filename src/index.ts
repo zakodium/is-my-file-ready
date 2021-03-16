@@ -1,4 +1,4 @@
-import { CheckResult, CheckFunction } from './interfaces';
+import { CheckResult, CheckFunction } from './types';
 
 /**
  *
@@ -6,7 +6,7 @@ import { CheckResult, CheckFunction } from './interfaces';
  */
 export default async function isMyFileReady(
   path: string,
-  checks: CheckFunction<CheckResult>[] | CheckFunction<CheckResult>,
+  checks: CheckFunction[] | CheckFunction,
 ): Promise<{ isReady: boolean; checks: CheckResult[] }> {
   if (!Array.isArray(checks)) checks = [checks];
   const results = await Promise.all(checks.map((check) => check(path)));
@@ -15,3 +15,5 @@ export default async function isMyFileReady(
     checks: results,
   };
 }
+
+export * from './types';

@@ -1,12 +1,8 @@
 import { stat } from 'fs/promises';
 
-import { CheckFunction, CheckResult } from '../interfaces';
+import { CheckFunction } from '../types';
 
-interface SameSizeResult extends CheckResult {
-  size: number;
-}
-
-export function sameSize(expectedSize: number): CheckFunction<SameSizeResult> {
+export function sameSize(expectedSize: number): CheckFunction {
   if (typeof expectedSize !== 'number') {
     throw new TypeError(`expectedSize should be a number`);
   }
@@ -17,7 +13,7 @@ export function sameSize(expectedSize: number): CheckFunction<SameSizeResult> {
   return async (path: string) => {
     const { size } = await stat(path);
     return {
-      checkName: 'sameSize',
+      name: 'sameSize',
       isReady: expectedSize === size,
       size,
     };

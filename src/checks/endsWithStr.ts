@@ -1,12 +1,8 @@
 import { open, stat } from 'fs/promises';
 
-import { CheckFunction, CheckResult } from '../interfaces';
+import { CheckFunction } from '../types';
 
-interface EndsWithStrResult extends CheckResult {
-  endsWith: string;
-}
-
-export function endsWithStr(endsStr: string): CheckFunction<EndsWithStrResult> {
+export function endsWithStr(endsStr: string): CheckFunction {
   if (typeof endsStr !== 'string') {
     throw new TypeError('endStr should be a string');
   }
@@ -27,7 +23,7 @@ export function endsWithStr(endsStr: string): CheckFunction<EndsWithStrResult> {
     const endsWith = buffer.toString('utf-8');
 
     return {
-      checkName: 'endsWithStr',
+      name: 'endsWithStr',
       isReady: endsWith === endsStr,
       endsWith,
     };

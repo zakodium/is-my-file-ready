@@ -7,7 +7,7 @@ const invalidEnd = 42;
 
 test("returns the expected result if file doesn't end with the expected string", async () => {
   expect(await endsWithStr(notOkEnd)(file)).toStrictEqual({
-    checkName: 'endsWithStr',
+    name: 'endsWithStr',
     isReady: false,
     endsWith: okEnd,
   });
@@ -15,7 +15,7 @@ test("returns the expected result if file doesn't end with the expected string",
 
 test('returns the expected result if file does end with the expected string', async () => {
   expect(await endsWithStr(okEnd)(file)).toStrictEqual({
-    checkName: 'endsWithStr',
+    name: 'endsWithStr',
     isReady: true,
     endsWith: okEnd,
   });

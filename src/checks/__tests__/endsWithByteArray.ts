@@ -25,7 +25,7 @@ const invalidEnd = '42';
 
 test("returns the expected result if file doesn't end with the expected string", async () => {
   expect(await endsWithByteArray(notOkEnd)(file)).toStrictEqual({
-    checkName: 'endsWithByteArray',
+    name: 'endsWithByteArray',
     isReady: false,
     endsWith: okEnd.slice(okEnd.length - notOkEnd.length),
   });
@@ -33,7 +33,7 @@ test("returns the expected result if file doesn't end with the expected string",
 
 test('returns the expected result if file does end with the expected string', async () => {
   expect(await endsWithByteArray(okEnd)(file)).toStrictEqual({
-    checkName: 'endsWithByteArray',
+    name: 'endsWithByteArray',
     isReady: true,
     endsWith: okEnd,
   });

@@ -13,7 +13,7 @@ beforeAll(async () => {
 
 test('returns the expected result if the last modification is different than the specified time (date)', async () => {
   expect(await editTime(notOkTime)(file)).toStrictEqual({
-    checkName: 'editTime',
+    name: 'editTime',
     isReady: false,
     lastEdit: okTime,
   });
@@ -21,8 +21,7 @@ test('returns the expected result if the last modification is different than the
 
 test('returns the expected result if the last modification is different than the specified time (ms)', async () => {
   expect(await editTime(notOkTime.getTime())(file)).toStrictEqual({
-    checkName: 'editTime',
-
+    name: 'editTime',
     isReady: false,
     lastEdit: okTime,
   });
@@ -30,7 +29,7 @@ test('returns the expected result if the last modification is different than the
 
 test('returns the expected result if the last modification is the same as the specified one (date)', async () => {
   expect(await editTime(okTime)(file)).toStrictEqual({
-    checkName: 'editTime',
+    name: 'editTime',
     isReady: true,
     lastEdit: okTime,
   });
@@ -38,7 +37,7 @@ test('returns the expected result if the last modification is the same as the sp
 
 test('returns the expected result if the last modification is the same as the specified one (ms)', async () => {
   expect(await editTime(okTime.getTime())(file)).toStrictEqual({
-    checkName: 'editTime',
+    name: 'editTime',
     isReady: true,
     lastEdit: okTime,
   });

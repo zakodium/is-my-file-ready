@@ -19,7 +19,7 @@ test('can pass one check', async () => {
     isReady: true,
     checks: [
       {
-        checkName: 'endsWithStr',
+        name: 'endsWithStr',
         isReady: true,
         endsWith: end,
       },
@@ -33,15 +33,23 @@ test('can pass multiple checks', async () => {
     isReady: true,
     checks: [
       {
-        checkName: 'endsWithStr',
+        name: 'endsWithStr',
         isReady: true,
         endsWith: end,
       },
       {
-        checkName: 'sameSize',
+        name: 'sameSize',
         isReady: true,
         size: size,
       },
     ],
   });
+});
+
+test('typescript autocomplete correctly', async () => {
+  const result = await isMyFileReady(file, [endsWithStr(end), sameSize(size)]);
+  const check = result.checks[1];
+  if (check.name === 'endsWithStr') {
+    expect(check.endsWith).toBe(end);
+  }
 });
