@@ -16,6 +16,9 @@ Small utility to check if a file is ready to be worked with.
 ```js
 import isMyFileReady, { sameSize, endsWithStr } from 'is-my-file-ready';
 
+const expectedSize = 4242;
+const expectedEnds = 'sit amet.';
+
 const result = await isMyFileReady('./myfile.txt', [
   sameSize(expectedSize),
   endsWithStr(expectedEnds),
