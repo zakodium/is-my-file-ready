@@ -1,6 +1,6 @@
 {
   "name": "is-my-file-ready",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Small utility to check if a file is ready to be worked with.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
