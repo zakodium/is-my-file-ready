@@ -43,5 +43,5 @@ test('throws error if input is not an array of bytes', async () => {
   const t = async () => {
     await endsWithBytes(invalidEnd)(file);
   };
-  await expect(t).rejects.toBeInstanceOf(TypeError);
+  await expect(t).rejects.toThrow('endBytes should be a non-empty array');
 });

@@ -30,14 +30,16 @@ test('returns the expected result if file has the expected size', async () => {
 
 test('throws error if input is not an integer', async () => {
   const t = async () => {
-    await sameSize(invalidSizes[0] as number)(file);
+    // @ts-expect-error
+    await sameSize(invalidSizes[0])(file);
   };
-  await expect(t).rejects.toBeInstanceOf(TypeError);
+  await expect(t).rejects.toThrow('expectedSize should be an integer');
 });
 
 test('throws error if input is not a number', async () => {
   const t = async () => {
-    await sameSize(invalidSizes[1] as number)(file);
+    // @ts-expect-error
+    await sameSize(invalidSizes[1])(file);
   };
-  await expect(t).rejects.toBeInstanceOf(TypeError);
+  await expect(t).rejects.toThrow('expectedSize should be a number');
 });

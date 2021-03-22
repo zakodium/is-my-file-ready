@@ -23,7 +23,8 @@ test('returns the expected result if file does end with the expected string', as
 
 test('throws error if input is not a string', async () => {
   const t = async () => {
-    await endsWithStr((invalidEnd as unknown) as string)(file);
+    // @ts-expect-error
+    await endsWithStr(invalidEnd)(file);
   };
-  await expect(t).rejects.toBeInstanceOf(TypeError);
+  await expect(t).rejects.toThrow('endStr should be a non-empty string');
 });

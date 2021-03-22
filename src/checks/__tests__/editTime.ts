@@ -45,7 +45,10 @@ test('returns the expected result if the last modification is the same as the sp
 
 test('throws error if input is neither a date or a number', async () => {
   const t = async () => {
-    await editTime((invalidTime as unknown) as number)(file);
+    // @ts-expect-error
+    await editTime(invalidTime)(file);
   };
-  await expect(t).rejects.toBeInstanceOf(TypeError);
+  await expect(t).rejects.toThrow(
+    'referenceTime should either be a Date or a number',
+  );
 });

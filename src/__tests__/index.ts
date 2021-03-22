@@ -54,3 +54,8 @@ test('typescript autocomplete correctly', async () => {
     expect(check.endsWith).toBe(end);
   }
 });
+
+test("throws if file doesn't exist", async () => {
+  const t = async () => isMyFileReady('hello', endsWithStr(end));
+  await expect(t).rejects.toThrow('ENOENT');
+});
