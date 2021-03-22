@@ -73,6 +73,10 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="modules.html#default" class="tsd-kind-icon">default</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#edittime" class="tsd-kind-icon">edit<wbr>Time</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#endswithbytes" class="tsd-kind-icon">ends<wbr>With<wbr>Bytes</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#endswithstr" class="tsd-kind-icon">ends<wbr>With<wbr>Str</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#samesize" class="tsd-kind-icon">same<wbr>Size</a></li>
 							</ul>
 						</section>
 					</div>
@@ -86,7 +90,7 @@
 					<div class="tsd-signature tsd-kind-icon">Check<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modules.html#checkresult" class="tsd-signature-type" data-tsd-kind="Type alias">CheckResult</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/e3cbdbc/src/types.ts#L34">types.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/types.ts#L34">types.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -117,7 +121,7 @@
 					<div class="tsd-signature tsd-kind-icon">Check<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;editTime&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;endsWithBytes&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;endsWithStr&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;sameSize&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/e3cbdbc/src/types.ts#L1">types.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/types.ts#L1">types.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -127,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">Check<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>isReady<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">EditTimeResult</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EndsWithBytesResult</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EndsWithStrResult</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">SameSizeResult</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/e3cbdbc/src/types.ts#L27">types.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/types.ts#L27">types.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +148,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/e3cbdbc/src/index.ts#L7">index.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/index.ts#L7">index.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -158,6 +162,98 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>checks<span class="tsd-signature-symbol">: </span><a href="modules.html#checkresult" class="tsd-signature-type" data-tsd-kind="Type alias">CheckResult</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>isReady<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>true - if my file is ready</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="edittime" class="tsd-anchor"></a>
+					<h3>edit<wbr>Time</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">edit<wbr>Time<span class="tsd-signature-symbol">(</span>referenceTime<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/checks/editTime.ts#L5">checks/editTime.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>referenceTime: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="endswithbytes" class="tsd-anchor"></a>
+					<h3>ends<wbr>With<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<wbr>Bytes<span class="tsd-signature-symbol">(</span>endBytes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ArrayLike</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/checks/endsWithBytes.ts#L5">checks/endsWithBytes.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>endBytes: <span class="tsd-signature-type">ArrayLike</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="endswithstr" class="tsd-anchor"></a>
+					<h3>ends<wbr>With<wbr>Str</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<wbr>Str<span class="tsd-signature-symbol">(</span>endsStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/checks/endsWithStr.ts#L5">checks/endsWithStr.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>endsStr: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="samesize" class="tsd-anchor"></a>
+					<h3>same<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">same<wbr>Size<span class="tsd-signature-symbol">(</span>expectedSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zakodium/is-my-file-ready/blob/0d1b2b5/src/checks/sameSize.ts#L5">checks/sameSize.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>expectedSize: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="modules.html#checkfunction" class="tsd-signature-type" data-tsd-kind="Type alias">CheckFunction</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -184,6 +280,18 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#edittime" class="tsd-kind-icon">edit<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#endswithbytes" class="tsd-kind-icon">ends<wbr>With<wbr>Bytes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#endswithstr" class="tsd-kind-icon">ends<wbr>With<wbr>Str</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#samesize" class="tsd-kind-icon">same<wbr>Size</a>
 					</li>
 				</ul>
 			</nav>

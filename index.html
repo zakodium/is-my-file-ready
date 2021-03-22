@@ -62,10 +62,10 @@
 					<h1>is-my-file-ready</h1>
 				</a>
 				<p><a href="https://www.npmjs.com/package/is-my-file-ready"><img src="https://img.shields.io/npm/v/is-my-file-ready.svg" alt="NPM version"></a>
-					<a href="https://github.com/zakodium/is-my-file-ready/actions?query=workflow%3A%22Node.js+CI%22"><img src="https://github.com/zakodium/is-my-file-ready/workflows/Node.js%20CI/badge.svg?branch=master" alt="build status"></a>
+					<a href="https://github.com/zakodium/is-my-file-ready/actions?query=workflow%3A%22Node.js+CI%22"><img src="https://github.com/zakodium/is-my-file-ready/workflows/Node.js%20CI/badge.svg?branch=main" alt="build status"></a>
 					<a href="https://codecov.io/gh/zakodium/is-my-file-ready"><img src="https://img.shields.io/codecov/c/github/zakodium/is-my-file-ready.svg" alt="Test coverage"></a>
 				<a href="https://www.npmjs.com/package/is-my-file-ready"><img src="https://img.shields.io/npm/dm/is-my-file-ready.svg" alt="npm download"></a></p>
-				<p>.</p>
+				<p>Small utility to check if a file is ready to be worked with.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
@@ -73,11 +73,39 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">myModule</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;is-my-file-ready&#039;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">isMyFileReady</span><span style="color: #000000">, { </span><span style="color: #001080">sameSize</span><span style="color: #000000">, </span><span style="color: #001080">endsWithStr</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;is-my-file-ready&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #795E26">myModule</span><span style="color: #000000">(</span><span style="color: #001080">args</span><span style="color: #000000">);</span>
-<span style="color: #008000">// result is ...</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">expectedSize</span><span style="color: #000000"> = </span><span style="color: #098658">4242</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">expectedEnds</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;sit amet.&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">isMyFileReady</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./myfile.txt&#039;</span><span style="color: #000000">, [</span>
+<span style="color: #000000">  </span><span style="color: #795E26">sameSize</span><span style="color: #000000">(</span><span style="color: #001080">expectedSize</span><span style="color: #000000">),</span>
+<span style="color: #000000">  </span><span style="color: #795E26">endsWithStr</span><span style="color: #000000">(</span><span style="color: #001080">expectedEnds</span><span style="color: #000000">),</span>
+<span style="color: #000000">]);</span>
+<span style="color: #AF00DB">if</span><span style="color: #000000"> (!</span><span style="color: #001080">result</span><span style="color: #000000">.</span><span style="color: #001080">isReady</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">result</span><span style="color: #000000">.</span><span style="color: #001080">checks</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">filter</span><span style="color: #000000">((</span><span style="color: #001080">check</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> !</span><span style="color: #001080">check</span><span style="color: #000000">.</span><span style="color: #001080">isReady</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">check</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">toPrint</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">      </span><span style="color: #001080">toPrint</span><span style="color: #000000"> += </span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">check</span><span style="color: #000000FF">.</span><span style="color: #001080">name</span><span style="color: #0000FF">}</span><span style="color: #A31515"> failed. `</span><span style="color: #000000">;</span>
+<span style="color: #000000">      </span><span style="color: #AF00DB">switch</span><span style="color: #000000"> (</span><span style="color: #001080">check</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">case</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;sameSize&#039;</span><span style="color: #000000">:</span>
+<span style="color: #000000">          </span><span style="color: #001080">toPrint</span><span style="color: #000000"> += </span><span style="color: #A31515">`Expected &quot;</span><span style="color: #0000FF">${</span><span style="color: #001080">expectedSize</span><span style="color: #0000FF">}</span><span style="color: #A31515">&quot;, got &quot;</span><span style="color: #0000FF">${</span><span style="color: #001080">check</span><span style="color: #000000FF">.</span><span style="color: #001080">size</span><span style="color: #0000FF">}</span><span style="color: #A31515">.&quot;`</span><span style="color: #000000">;</span>
+<span style="color: #000000">          </span><span style="color: #AF00DB">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">case</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;endsWithStr&#039;</span><span style="color: #000000">:</span>
+<span style="color: #000000">          </span><span style="color: #001080">toPrint</span><span style="color: #000000"> += </span><span style="color: #A31515">`Expected &quot;</span><span style="color: #0000FF">${</span><span style="color: #001080">expectedEnds</span><span style="color: #0000FF">}</span><span style="color: #A31515">&quot;, got &quot;</span><span style="color: #0000FF">${</span><span style="color: #001080">check</span><span style="color: #000000FF">.</span><span style="color: #001080">endsWith</span><span style="color: #0000FF">}</span><span style="color: #A31515">.&quot;`</span><span style="color: #000000">;</span>
+<span style="color: #000000">          </span><span style="color: #AF00DB">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">      }</span>
+<span style="color: #000000">      </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">toPrint</span><span style="color: #000000">);</span>
+<span style="color: #000000">    });</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;File is ready !&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
 </code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>See <a href="https://zakodium.github.io/is-my-file-ready">https://zakodium.github.io/is-my-file-ready</a></p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
@@ -105,6 +133,18 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#edittime" class="tsd-kind-icon">edit<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#endswithbytes" class="tsd-kind-icon">ends<wbr>With<wbr>Bytes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#endswithstr" class="tsd-kind-icon">ends<wbr>With<wbr>Str</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#samesize" class="tsd-kind-icon">same<wbr>Size</a>
 					</li>
 				</ul>
 			</nav>
